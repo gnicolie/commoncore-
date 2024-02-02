@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:59:37 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/01/31 18:08:26 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:07:06 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,27 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	char	c;
 
-	i = 0;
-	while (s[i])
+	if (n == -2147483648)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-		char	c;
-
-	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
-	if (nb < 0)
+	if (n < 0)
 	{
-		nb = nb * -1;
-		write(1, "-", 1);
+		n = n * -1;
+		write(fd, "-", 1);
 	}
-	if (nb > 9)
+	if (n > 9)
 	{
-		ft_putnbr(nb / 10);
-		c = '0' + nb % 10;
-		write (1, &c, 1);
+		ft_putnbr_fd(n / 10, fd);
+		c = '0' + n % 10;
+		write (fd, &c, 1);
 	}
-	if (nb >= 0 && nb <= 9)
+	if (n >= 0 && n <= 9)
 	{
-		c = '0' + nb;
-		write (1, &c, 1);
+		c = '0' + n;
+		write (fd, &c, 1);
 	}
 }
