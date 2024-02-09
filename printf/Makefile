@@ -6,7 +6,7 @@
 #    By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/30 18:43:30 by gnicolie          #+#    #+#              #
-#    Updated: 2024/02/08 18:24:19 by gnicolie         ###   ########.fr        #
+#    Updated: 2024/02/09 15:29:41 by gnicolie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
 SRCS =  
-BONUS_SRCS = 
+#BONUS_SRCS = 
 					 
 
 OBJS = $(SRCS:.c=.o)
