@@ -6,40 +6,44 @@
 #    By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/30 18:43:30 by gnicolie          #+#    #+#              #
-#    Updated: 2024/02/09 15:29:41 by gnicolie         ###   ########.fr        #
+#    Updated: 2024/02/13 14:49:38 by gnicolie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-SRCS =  
+SRCS =  ft_printf.c\
+		ft_pchar.c\
+		ft_pstring.c\
+		ft_pnbr.c\
+		
+		
 #BONUS_SRCS = 
-					 
-
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-
-all: $(NAME)
-
-$(NAME): $(LIBFT)$(OBJS)
-	ar rcs $(NAME) $(LIBFT) $(OBJS)
-bonus: $(BONUS_OBJS)
-	ar rcs $(NAME) $(BONUS_OBJS)
-	
+#BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
+$(NAME): $(LIBFT) $(OBJS)
+	cp $(LIBFT) $(NAME) 
+		ar rcs $@ $^
 $(LIBFT):
-	make -c $(LIBFT_PATH)	
+	make -C $(LIBFT_PATH) all
+all: $(NAME)
+#bonus: $(BONUS_OBJS)
+#	ar rcs $(NAME) $(BONUS_OBJS)
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) 
+	make -C $(LIBFT_PATH) clean
 	
 fclean: clean 
-	rm -f $(NAME) $(OBJS) $(BONUS_OBJS)
-re: fclean all
+	rm -f $(NAME) 
+	make -C $(LIBFT_PATH) fclean 
+re: clean all
 
-.PHONY: clean fclean re all
+.PHONY: all clean fclean re libft

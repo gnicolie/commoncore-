@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_pstring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 21:44:57 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/02/13 14:50:34 by gnicolie         ###   ########.fr       */
+/*   Created: 2024/02/12 16:31:46 by gnicolie          #+#    #+#             */
+/*   Updated: 2024/02/13 15:09:36 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include "ft_printf.h"
-# include "./libft/libft.h"
+int	ft_pstring(char *s)
+{
+	int	i;
 
-int	ft_printf(char const *format, ...);
-int	ft_pchar(int c);
-int	ft_pstring(char *c);
-int	ft_pnbr(int c);
-
-#endif
+	i = 0;
+	if (!s)
+	{
+		write (1, "(null)", 6);
+		return (6);
+	}
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
+}
