@@ -6,7 +6,7 @@
 #    By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/30 18:43:30 by gnicolie          #+#    #+#              #
-#    Updated: 2024/02/13 14:49:38 by gnicolie         ###   ########.fr        #
+#    Updated: 2024/02/13 16:43:28 by gnicolie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 SRCS =  ft_printf.c\
 		ft_pchar.c\
+		ft_padd.c\
 		ft_pstring.c\
 		ft_pnbr.c\
 		

@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 21:44:57 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/02/13 14:50:34 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:43:42 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 int	ft_printf(char const *format, ...);
 int	ft_pchar(int c);
 int	ft_pstring(char *c);
+int	ft_padd(void *p);
 int	ft_pnbr(int c);
 
 #endif
