@@ -6,7 +6,7 @@
 #    By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/30 18:43:30 by gnicolie          #+#    #+#              #
-#    Updated: 2024/02/13 16:43:28 by gnicolie         ###   ########.fr        #
+#    Updated: 2024/02/15 20:10:26 by gnicolie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ SRCS =  ft_printf.c\
 		ft_padd.c\
 		ft_pstring.c\
 		ft_pnbr.c\
+		ft_pnbru.c\
+		ft_hex.c\
+		
 		
 		
 #BONUS_SRCS = 

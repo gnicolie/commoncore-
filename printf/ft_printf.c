@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:50:47 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/02/13 16:34:28 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:58:11 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	ft_format(const char *c, va_list args)
 		i += ft_padd(va_arg(args, void *));
 	else if (*c == 'd' || *c == 'i')
 		i += ft_pnbr(va_arg(args, int));
-	/* else if (*c == 'u')
-		i += ft_pchar(va_arg(args, int));
-	else if (*c == 'x')
+	else if (*c == 'u')
+		i += ft_pnbru(va_arg(args, unsigned int));
+	/* else if (*c == 'x')
 		i += ft_pchar(va_arg(args, int));
 	else if (*c == 'X')
 		i += ft_pchar(va_arg(args, int));*/
