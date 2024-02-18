@@ -6,7 +6,7 @@
 #    By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/30 18:43:30 by gnicolie          #+#    #+#              #
-#    Updated: 2024/02/15 20:10:26 by gnicolie         ###   ########.fr        #
+#    Updated: 2024/02/18 18:38:13 by gnicolie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,13 @@ SRCS =  ft_printf.c\
 		ft_pstring.c\
 		ft_pnbr.c\
 		ft_pnbru.c\
-		ft_hex.c\
+		ft_phex.c\
+		ft_phexm.c\
 		
 		
 		
-#BONUS_SRCS = 
+
 OBJS = $(SRCS:.c=.o)
-#BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
@@ -39,8 +39,6 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 	make -C $(LIBFT_PATH) all
 all: $(NAME)
-#bonus: $(BONUS_OBJS)
-#	ar rcs $(NAME) $(BONUS_OBJS)
 clean:
 	rm -f $(OBJS) 
 	make -C $(LIBFT_PATH) clean

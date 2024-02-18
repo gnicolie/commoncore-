@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:50:47 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/02/15 19:58:11 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:34:01 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,15 @@ static int	ft_format(const char *c, va_list args)
 		i += ft_pnbr(va_arg(args, int));
 	else if (*c == 'u')
 		i += ft_pnbru(va_arg(args, unsigned int));
-	/* else if (*c == 'x')
-		i += ft_pchar(va_arg(args, int));
+	else if (*c == 'x')
+		i += ft_phex(va_arg(args, unsigned int));
 	else if (*c == 'X')
-		i += ft_pchar(va_arg(args, int));*/
+		i += ft_phexm(va_arg(args, unsigned int));
 	else if (*c == '%')
-		i += ft_pchar(*c); 
+		i += ft_pchar(*c);
 	return (i);
 }
 
-//funcion que pase de decimal a cualquier tipo de base
 int	ft_printf(char const *format, ...)
 {
 	int		i;
@@ -44,6 +43,8 @@ int	ft_printf(char const *format, ...)
 
 	va_start(args, format);
 	i = 0;
+	if (write(1, "", 0) == -1)
+		return (-1);
 	while (*format != '\0')
 	{
 		if (*format == '%')
