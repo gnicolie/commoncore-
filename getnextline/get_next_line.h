@@ -9,9 +9,13 @@
 #  define BUFFER_SIZE 1000000
 # endif
 
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
-void	ft_buffclear(char *buff, int readerr);
+char	*update_stash(char *stash);
+char	*select_line(char *stash);
+char	*read_s(int fd, char *stash);
+size_t	ft_strlen(const char *s);
+int	    ft_strnl(const char *s);
+char    *join(char *buffer, char* stash);
+
 
 #endif
