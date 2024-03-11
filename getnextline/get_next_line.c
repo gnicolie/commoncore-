@@ -9,13 +9,15 @@ char	*read_s(int fd, char *stash)
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	while (ft_strnl(stash) && bytes_read != 0)
+	while (bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
 			return (free(buffer), NULL);
 		buffer[bytes_read] = '\0';
 		stash = join(stash, buffer);
+		if (ft_strnl(stash) == 1)
+			break;
 	}
 	return (free(buffer), stash);
 }
@@ -82,4 +84,20 @@ char	*get_next_line(int fd)
 	line = select_line(stash);
 	stash = update_stash(stash);
 	return (line);
+}
+int	main(void)
+{
+	int		fd;
+	char	*singleLine;
+
+	singleLine = malloc(1 * sizeof(char));
+	fd = open("testing.txt", 256);
+	while(singleLine != NULL)
+	{
+		free(singleLine);
+		singleLine = get_next_line(fd);
+		printf("%s", singleLine);
+	}
+	close(fd);
+	return (0);
 }
