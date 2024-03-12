@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:00:04 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/03/12 15:25:53 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:15:29 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_s(int fd, char *stash)
 {
@@ -85,15 +85,15 @@ char	*update_stash(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[1000];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
 		return (NULL);
-	stash = read_s(fd, stash);
-	if (!stash)
+	stash[fd] = read_s(fd, stash[fd]);
+	if (!stash[fd])
 		return (NULL);
-	line = select_line(stash);
-	stash = update_stash(stash);
+	line = select_line(stash[fd]);
+	stash[fd] = update_stash(stash[fd]);
 	return (line);
 }
