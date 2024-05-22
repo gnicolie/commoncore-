@@ -23,7 +23,7 @@ void	init_stack_a(t_stack **a, char **num)
 	{
 		new_node = malloc(sizeof(t_stack));
 		if (new_node == NULL)
-			return ;
+			return ;//my error
 		new_node->number = ft_atol(*ptr);
 		new_node->next = NULL;
 		if (*a == NULL)

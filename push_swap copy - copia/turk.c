@@ -147,3 +147,13 @@ void	rotate_both_a_b(t_stack **a, t_stack **b, t_stack *cheapest)
 			rrr(a,b, true);
 	}
 } 
+
+void	free_stack(t_stack **a)
+{
+	t_stack	*ptr;
+	t_stack	*temp;
+
+	ptr = *a;
+	if (!stack)
+	
+}

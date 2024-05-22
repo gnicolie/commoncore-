@@ -11,7 +11,15 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+// make libreria y relink 
+// liberar stack
+// optimizar media
+void	my_error(t_stack **list_a)//* o **
+{
+	ft_putstr_fd("Error\n", 2);// añadir char s
+	free(list_a);
+	exit(1);
+}
 void	rotatelist(t_stack **a)
 {
 	t_stack	*min;
@@ -60,8 +68,7 @@ int	main(int argc, char **argv)
 		num = ft_split(argv[1], ' ');
 	if (check_stringe(num) || num[0] == NULL)
 	{
-		ft_printf("Error\n");
-		return (1);
+		my_error(&list_a);
 	}
 	init_stack_a(&list_a, num);
 	if (is_sorted(list_a))

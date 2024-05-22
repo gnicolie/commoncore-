@@ -74,4 +74,5 @@ void				move_b_to_a(t_stack **a, t_stack **b, t_stack *cheapest);
 void				rotatelist(t_stack **a);
 void		rotate_both_b_a(t_stack **a, t_stack **b, t_stack *cheapest);
 void	rotate_both_a_b(t_stack **a, t_stack **b, t_stack *cheapest);
+void	my_error(char *s, t_stack **list_a);
 #endif
