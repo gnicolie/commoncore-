@@ -17,9 +17,10 @@
 void	my_error(t_stack **list_a)//* o **
 {
 	ft_putstr_fd("Error\n", 2);// añadir char s
-	free(list_a);
+	free_stack(list_a);
 	exit(1);
 }
+
 void	rotatelist(t_stack **a)
 {
 	t_stack	*min;
@@ -66,6 +67,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (argc == 2)
 		num = ft_split(argv[1], ' ');
+	ft_printf ("num[0] = %s\n", num[0]);
 	if (check_stringe(num) || num[0] == NULL)
 	{
 		my_error(&list_a);
@@ -83,5 +85,8 @@ int	main(int argc, char **argv)
 			turkalgorithm(&list_a, &list_b);
 	}
 	rotatelist(&list_a);
+	free_stack(&list_a);
+	free_stack(&list_b);
+	//free_list(num);
 	return (0);
 }

@@ -154,6 +154,28 @@ void	free_stack(t_stack **a)
 	t_stack	*temp;
 
 	ptr = *a;
-	if (!stack)
-	
+	if (!a)
+	{
+		return;
+	}
+	while (ptr)
+	{
+		temp = ptr->next;
+		ptr->number = 0;
+		free(ptr);
+		ptr = temp;
+	}
+}
+
+void	free_list(char **a)
+{
+	int	i;
+
+	i = 0;
+	while (a[i])
+	{
+		free(a[i]);
+		i++;
+	}
+	free(a);
 }

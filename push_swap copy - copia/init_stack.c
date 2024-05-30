@@ -23,7 +23,7 @@ void	init_stack_a(t_stack **a, char **num)
 	{
 		new_node = malloc(sizeof(t_stack));
 		if (new_node == NULL)
-			return ;//my error
+			my_error(a) ;//my error
 		new_node->number = ft_atol(*ptr);
 		new_node->next = NULL;
 		if (*a == NULL)
@@ -72,8 +72,12 @@ bool	check_notint(char *ptr)
 	{
 		i++;
 	}
+	if (ptr[i] == '\0')
+		return (true);
 	while (ptr[i] != '\0')
 	{
+		if(ptr[i] == ' ' || ptr[i] == '\t' || ptr[i] == '\n' || ptr[i] == '\v' || ptr[i] == '\f' || ptr[i] == '\r')
+			return (true);	
 		if (!ft_isdigit(ptr[i]))
 			return (true);
 		i++;
@@ -94,7 +98,7 @@ bool	check_norep(char **num)
 		i = 1 + t;
 		while (num[i] != NULL)
 		{
-			if (ft_strncmp(num[i], *ptr, sizeof(int)) == 0)
+			if (ft_atol(*ptr) == ft_atol(num[i]))
 				return (true);
 			i++;
 		}
