@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 20:45:07 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/05/13 20:58:45 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/06/01 20:52:31 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,3 @@ int	main(int argc, char **argv)
 	free_list(num);
 	return (0);
 }
-
