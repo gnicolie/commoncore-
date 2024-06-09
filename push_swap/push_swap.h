@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 20:45:12 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/06/01 19:22:28 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:27:23 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdarg.h>
 # include <stdbool.h>
 # include <stdio.h>
+#define INT_MAX_VALUE INT_MAX
+#define INT_MIN_VALUE INT_MIN
 
 typedef struct s_stack
 {
@@ -32,6 +34,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
+
 // init and error manage
 void				init_stack_a(t_stack **a, char **num);
 bool				check_stringe(char **num);

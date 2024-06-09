@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 20:45:00 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/06/01 19:18:33 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/06/09 21:08:59 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	init_stack_a(t_stack **a, char **num)
 			new_node->prev = last_node;
 			last_node = new_node;
 		}
+		new_node->cheapest = false;
 		num++;
 	}
 }

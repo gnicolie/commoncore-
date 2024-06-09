@@ -6,7 +6,7 @@
 /*   By: gnicolie <gnicolie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 20:45:07 by gnicolie          #+#    #+#             */
-/*   Updated: 2024/06/01 20:52:31 by gnicolie         ###   ########.fr       */
+/*   Updated: 2024/06/09 20:39:38 by gnicolie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,42 @@ int	main(int argc, char **argv)
 	if (check_stringe(num) || num[0] == NULL)
 		my_error(&list_a);
 	init_stack_a(&list_a, num);
+	if (argc == 2)
+		free_list(num);
 	if (is_sorted(list_a))
+	{
+		free_stack(&list_a);
 		return (3);
+	}
 	managecase(&list_a, &list_b);
 	free_stack(&list_a);
 	free_stack(&list_b);
-	free_list(num);
 	return (0);
 }
+
+/* int	main(int argc, char **argv)
+{
+	t_stack	*list_a;
+	t_stack	*list_b;
+
+	list_a = NULL;
+	list_b = NULL;
+	if (argc == 1)
+		return (1);
+	if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	if (check_stringe(argv))
+		my_error(&list_a);
+	init_stack_a(&list_a, argv);
+	if (argc == 2)
+		free_list(argv);
+	if (is_sorted(list_a))
+	{
+		free_stack(&list_a);
+		return (3);
+	}
+	managecase(&list_a, &list_b);
+	free_stack(&list_a);
+	free_stack(&list_b);
+	return (0);
+} */
